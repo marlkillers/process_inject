@@ -298,7 +298,7 @@ int inject_dylib_arm(pid_t pid, const char *lib){
     LOG_INFO("Terminating injection thread for PID %d", pid);
     kr(thread_terminate(remote_thread));
     
-        kr(mach_vm_deallocate(task, remote_stack, STACK_SIZE));
+    kr(mach_vm_deallocate(task, remote_stack, STACK_SIZE));
     kr(mach_vm_deallocate(task, remote_mach_code, MACH_CODE_SIZE));
     kr(mach_vm_deallocate(task, remote_path, strlen(lib)));
     kr(mach_vm_deallocate(task, remote_pthread_mem, 8));
